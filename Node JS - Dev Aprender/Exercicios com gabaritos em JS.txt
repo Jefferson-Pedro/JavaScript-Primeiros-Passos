@@ -1,0 +1,181 @@
+Exercicios JS
+
+ex 001: TROCA DE NUMERO COM VARIAVEL
+let a = "vermelho";
+let b = "azul";
+let c = "";
+console.log("Antes da troca");
+console.log(a);
+console.log(b);
+
+c = b;
+b = a;
+a = c;
+console.log("depois da troca");
+console.log(a);
+console.log(b);
+--------------------------------------------------------------------------------------
+
+ex002: RETORNAR O MAIOR NUMERO
+function maiorNumero(a, b) {
+  if (a > b) return a;
+  return b;
+}
+
+let num = maiorNumero(155, 222);
+console.log(num);
+--------------------------------------------------------------------------------------
+
+ex003: RETORNAR SE O NUMERO É DIVISIVEL POR 3 OU 5 OU PELOS 2
+const resultado = fizzBuzz(14);
+console.log(resultado);
+
+function fizzBuzz(valor) {
+	if( typeof valor !== 'number') return 'Não é um número';
+	if (valor % 3 == 0 && valor % 5 == 0) return "FizzBuzz";
+	else if (valor % 3 == 0) return "Fizz";
+	else if (valor % 5 == 0) return "Buzz";
+	return "valor não é divisivei por 3 e 5";
+}
+--------------------------------------------------------------------------------------
+
+ex004: MEDIR VELOCIDADE E DETERMINAR QUANTOS PONTOS O CONDUTOR PERDE NA CARTEIRA. (VEL MAX: 70KM)
+		A CADA 5KM +1 PONTO NA CARTEIRA. CASO PONTOS > 12: CARTEIRA SUSPENSA;
+	
+const vel = verificaNumero(81);
+console.log(vel);
+
+function verificaNumero(num) {
+  if (typeof num !== 'number') 
+  return "Não é um número";
+  else return medidorDeVelocidade(num);
+}
+function medidorDeVelocidade(num) {
+    let velPermitida = 70;
+    let pontos = 12;
+    if(num <= velPermitida)
+    return('Velocidade dentro do permitido')
+    else{
+        let velocidadeExcedida = Math.round((num - velPermitida)/5); // 2 pontos
+        if (velocidadeExcedida >= 12){  
+        return "Carteira Suspensa, você excedeu 12 pontos";
+        }else{  
+        return "velocidade acima do permitido, você perdeu " + velocidadeExcedida + " pontos";
+        }
+    }  
+}
+--------------------------------------------------------------------------------------
+
+ex005: RECEBER UMA QTDE DE VALORES PARA AVALIAR E CRIAR FUNÇÃO PARA SABER SE CADA VALOR É PAR OU IMPAR
+
+const exbir = verificaValor(10);
+
+function verificaValor(valor){
+    for(let i = 0; i <= valor; i++){
+        if(i % 2 == 0)
+        console.log(i , "Par")
+        else console.log (i, 'Impar')
+    }
+--------------------------------------------------------------------------------------
+
+ex006: CRIAR UM MÉTODO PARA LER PORPRIEDADES DE UM OBJETO E EXIBIR SOMENTE AS STRINGS DENTRO DELE;
+
+const carro = {
+    marca: "wolks",
+    modelo: "gol",
+    motor: 1.6,
+    portas: 4
+};
+
+verificarObj(carro)
+function verificarObj(carro){
+    for(let prop in carro){
+        if(typeof carro[prop] === "string"){
+            console.log(prop, carro[prop]);
+        }
+    }
+}
+--------------------------------------------------------------------------------------
+
+ex007: CRIAR FUNÇÃO SOMA QUE RETORNA A SOMA DE TODOS OS MÚLTIPLOS DE 3 E 5;
+
+somar(10);
+function somar(limite){
+    let soma = 0
+ 
+    for(let i = 1; i <=10; i++){
+        if(i % 3 == 0 || i % 5 == 0)
+        soma += i;
+    }
+    console.log("Retorno da soma dos multiplos de 3 e 5: " + soma);
+}
+--------------------------------------------------------------------------------------
+
+ex008: OBTER MÉDIA A PARTIR DE UM ARRAY. REGRAS:
+		0 - 59 = F
+		60-69 = D
+		70-79 = C
+		80-89 = D
+		90-100 = A
+
+const array = [70,70,80];
+
+console.log(mediaAlunos(array));
+
+function mediaAlunos(array){
+    let soma = 0;
+       
+    for(let i of array){
+        soma += i;
+    }
+    const media = soma / (array.length);
+    return verificaNota(media);
+}
+function verificaNota(media){
+    
+    if(media <= 59) return "nota: F";
+    if(media <= 69) return "nota: D";
+    if(media <= 79) return "nota: C";
+    if(media <= 89) return "nota: B";
+    else return "nota A";
+}
+--------------------------------------------------------------------------------------
+
+ex009: CRIAR UMA FUNÇÃO QUE EXIBE A QUANTIDADE DE * DE UMA LINHA:
+
+const asteristico = 5;
+
+qtdAsteristicos(asteristico);
+
+function qtdAsteristicos(limite){
+    let str = '';
+    for(let i = 1; i <= limite; i++ ){
+        str += "*";
+        console.log(i, str);
+    }
+}
+--------------------------------------------------------------------------------------
+
+ex010: CRIAR FUNÇÃO PARA MOSTRAR NUMEROS PRIMOS:
+
+--------------------------------------------------------------------------------------
+
+ex011: CRIAR OBJETO QUE CONTENHA: RUA, CIDADE, CEP E CRIAR FUNÇÃO exibirEndereço():
+
+let endereco = {
+    rua: 'Marechal Deodoro',
+    cidade: 'Niterói',
+    cep: 24800
+};
+exibirEndereco(endereco);
+
+function exibirEndereco(endereco){
+    for(let key in endereco){
+        console.log(key, endereco[key]);
+    }
+}
+
+--------------------------------------------------------------------------------------
+
+
+
