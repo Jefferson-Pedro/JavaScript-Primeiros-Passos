@@ -1,59 +1,16 @@
-let num = document.getElementById('n1')
-let lista = document.querySelector('select#flista')
-let res = document.querySelector('div#msg')
-let valores = []
+let num = document.getElementById('n1');
+let lista = document.querySelector('select#flista');
+let res = document.querySelector('div#msg');
+let valores = [];
 
-function RealNum(n){ //validação para saber se o numero esta entre 0 e 100;
-    if (Number(n) >=1 && Number(n) <= 100 ){
-        return true
-    }else{
-        return false
-    }
-
-}
-function inLista(n,l){ //validação para saber se o número está dentro da lista(vetor);
-    if(l.indexOf(Number(n)) != -1){
-        return true
-    }else{
-        return false
-    }
-
-}
-function add(){ //função para adicionar os valores;
-    if(RealNum(num.value) && !inLista(num.value, valores)){ //o n = num.value e l = valores;
-       valores.push(Number(num.value))
-       let item = document.createElement('option')
-       item.text = `Valor ${num.value} adicionado`
-       lista.appendChild(item)
-    }else{
-        window.alert('[ERRO] Valor invalido ou já encontrado em lista!')
-    }
-    num.value = ''
-    num.focus()
-}
-function finalizar(){
-     if(valores.length == 0){
-        window.alert('Adicione valores antes de finalizar')
-    }else{
-        let tot = valores.length
-        let maior = valores[0]
-        let menor = valores[0]
-        let soma = 0
-        let media = 0 
-        for(let pos in valores){
-            soma +=valores[pos]
-            if(valores[pos] > maior)
-                maior - valores[pos]
-            else(valores[pos] < menor)
-                menor = valores[pos]
+function add() {
+    if (num.value.length == 0) {
+        window.alert('[ERRO] Preencha o campo em branco para continuar!');
+    } else if (num.value < 1 && num.value > 100) {
+        window.alert('[ERRO] Verique os dados preenchidos e tente novamente!');
+    } else {
+        for (let i = 0; i <= valores.length; i++) {
+            valores.push();
         }
-        media = soma / tot
-        res.innerHTML = ''
-        res.innerHTML += `<p>Ao todo, temos ${tot} números cadastrados.</p>`
-        res.innerHTML += `<p>O maior valor informado foi ${maior}.</p>`
-        res.innerHTML += `<p>O menor valor informado foi ${menor}.</p>`
-        res.innerHTML += `<p>Somando todos os valores, temos ${soma}.</p>`   
-        res.innerHTML += `<p>A média dos valores digitados é ${media}.</p>` 
     }
-
 }
